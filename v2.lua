@@ -84,7 +84,7 @@ TextLabel_2.Position = UDim2.new(0.360039562, 0, 0.412345767, 0)
 TextLabel_2.Size = UDim2.new(0.0705973655, 0, 0.0222222228, 0)
 TextLabel_2.ZIndex = 3
 TextLabel_2.Font = Enum.Font.Unknown
-TextLabel_2.Text = "V2"
+TextLabel_2.Text = "V2.1"
 TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_2.TextScaled = true
 TextLabel_2.TextSize = 14.000
@@ -1119,7 +1119,7 @@ Namey.BorderSizePixel = 0
 Namey.Position = UDim2.new(0.0877230912, 0, 0.0286782254, 0)
 Namey.Size = UDim2.new(0, 438, 0, 32)
 Namey.Font = Enum.Font.Gotham
-Namey.Text = "PT Version: V2.0"
+Namey.Text = "PT Version: V2.1"
 Namey.TextColor3 = Color3.fromRGB(255, 255, 255)
 Namey.TextScaled = true
 Namey.TextSize = 14.000
@@ -1497,7 +1497,7 @@ local function ZIKX_fake_script() -- PT2.Core
 				if x:IsA("Part") or x:IsA("BasePart") or x:IsA("MeshPart") or x:IsA("UnionOperation") or x:IsA("Seat") or x:IsA("VehicleSeat") or x:IsA("SpawnLocation") and not x:FindFirstChildOfClass("Weld")  and not x:FindFirstChildOfClass("ManualWeld")  and not x:FindFirstChildOfClass("WeldConstraint")   and not x:FindFirstChildOfClass("Motor6D") and x.Name ~= "Handle" then
 					if x.Anchored == false and (Player.Character.PrimaryPart.Position - x.Position).Magnitude < SimRad then
 						if x.Parent ~= Player.Character or x.Parent.Parent ~= Player.Character then
-							if not Players:GetPlayerFromCharacter(x) and not Players:GetPlayerFromCharacter(x.Parent)  and not Players:GetPlayerFromCharacter(x.Parent.Parent) and not x:FindFirstChildOfClass("Humanoid") and not x.Parent:FindFirstChildOfClass("Humanoid")  then
+							if not x:FindFirstChildOfClass("Humanoid") and not x.Parent:FindFirstChildOfClass("Humanoid")  and not x.Parent.Parent:FindFirstChildOfClass("Humanoid") and x ~= game.Players.LocalPlayer.Character and x.Parent ~= game.Players.LocalPlayer.Character then
 								ControlInstance(x)
 							end
 						end
