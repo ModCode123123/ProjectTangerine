@@ -29,7 +29,7 @@ ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ImageLabel.BorderSizePixel = 0
 ImageLabel.Size = UDim2.new(1.00155401, 0, 1.00000012, 0)
-ImageLabel.Image = "rbxassetid://4761748463"
+ImageLabel.Image = "rbxassetid://8218445915"
 
 Frame_2.Parent = ScreenGui
 Frame_2.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
@@ -107,7 +107,7 @@ TextLabel_3.TextSize = 14.000
 TextLabel_3.TextWrapped = true
 TextLabel_3.TextXAlignment = Enum.TextXAlignment.Left
 
-local d=math.random(1, 30)
+local d=math.random(1, 32)
 if d == 1 then
 	quote.Text="We're not on top."
 elseif d == 2 then
@@ -168,6 +168,10 @@ elseif d == 29 then
 	quote.Text="Say the line peajack! Im gonna PEA on you. what??"
 elseif d == 30 then
 	quote.Text="30th Quote Here, The Doohickey"
+elseif d == 31 then
+quote.Text="The Citadel's on full alert! I've never seen it lit up like that."
+elseif d == 32 then
+quote.Text="https://www.youtube.com/watch?v=yqhKGBWvyqM&t=0s&ab_channel=NvC_DmN_CH"
 end
 
 UIAspectRatioConstraint.Parent = ScreenGui
@@ -1706,13 +1710,16 @@ local function ZIKX_fake_script() -- PT2.Core
 	
 	RunService.Heartbeat:Connect(function()
 		if Running == true  then
-			for _, x in pairs(workspace:GetDescendants()) do
-				if x:IsA("Humanoid") and not Players:GetPlayerFromCharacter(x.Parent) then
-					if (Player.Character.PrimaryPart.Position - x.RootPart.Position).Magnitude < VRadius then
+				if Player.Character.PrimaryPart ~= nil then 
+				for _, x in pairs(workspace:GetDescendants()) do
+				if x:IsA("Humanoid") and not Players:GetPlayerFromCharacter(x.Parent) and x.RootPart ~= nil then
+					if (Player.Character.PrimaryPart.Position - x.RootPart.Position).Magnitude < tonumber(VRadius) then
 						ManipulateHumanoid(x)
 					end
 				end
 			end
+		end
+				
 		end
 	end)
 	
